@@ -5,4 +5,4 @@ const mul = (a, b) => a * b;
 
 const test = (a, b) => add(a, b) / sub(a, b);
 
-module.exports = { add, sub, mul, div, test };
+export default { add, sub, mul, div, test };

@@ -8,7 +8,7 @@
 // every js file is a module in node js
 
 // import { add, test } from './math.js';
-const { add, test } = require('./math');
+import math from './math.mjs';
 
-console.log(add(2, 3));
-console.log(test(2, 3));
+console.log(math.add(2, 3));
+console.log(math.test(2, 3));
