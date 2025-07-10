@@ -1,4 +1,6 @@
 import express from 'express';
+import postsRouter from './postsRouter.mjs';
+import userRouter from './userRouter.mjs';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -22,6 +24,20 @@ function tinnyLogger() {
 const middleware = [tinnyLogger(), customMiddleware];
 
 app.use(middleware);
+
+app.use('/user', userRouter);
+app.use('/posts', postsRouter);
+
+app.get('/products/:productId', (req, res) => {
+  console.log(req.params);
+  res.send(`<h1>I am listening ${req.params.productId}</h1>`);
+});
+
+app.get('/products/:productId/reviews/:reviewId', (req, res) => {
+  res.send(`<h1>I am review comment ${req.params.reviewId}</h1>`);
+});
+
+
 
 // app.use(morgan('dev')); //middleware runs for every routes // 3rd party middlware
 
